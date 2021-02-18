@@ -1,0 +1,19 @@
+.formWrap{
+    padding: 0 24px 21px 24px;
+}
+
+.passWrapper{
+    margin-bottom: 16px;
+}
+.textWrapper{
+    margin-bottom: 15px;
+}
+
+.recoverPassword{
+  margin-top: 5px;
+  text-align: right;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #8C8C8C;
+}

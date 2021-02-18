@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    background: linear-gradient(180deg, #090810 0%, #171236 100%);
+}
+
+.headerInner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:1440px;
+    margin:0 auto;
+    padding: 10px 5px 10px 5px;
+}
+
+.logo{
+    margin: 8px 5px 8px 0;
+}
+
+.left{
+
+}
+
+.panelRight{
+    display: flex;
+    min-width: 130px;
+    justify-content: space-between;
+    align-items: center;
+}
