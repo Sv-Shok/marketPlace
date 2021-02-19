@@ -4,14 +4,7 @@ import { observer } from 'mobx-react';
 
 const UserInfo = () => {
   const store = useStore();
-  return store &&
-    store.viewer &&
-    store.viewer.user &&
-    store.viewer.user.fullName ? (
-    <div>{store.viewer.user.fullName}</div>
-  ) : (
-    <div>Anonim</div>
-  );
+  return <div>{store.viewer.user.fullName}</div>;
 };
 
 export default observer(UserInfo);

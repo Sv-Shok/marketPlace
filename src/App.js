@@ -5,15 +5,15 @@ import Router from './scenes/routes';
 
 const App = () => {
   const store = createStore();
-  const [isLoading, setLoading] = useState(true);
+  // const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     store.bootstrap().then(() => {
-      setLoading(false);
+      // setLoading(false);
     });
   }, []);
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
   return (
     <div className={s.app}>
       <Provider value={store}>

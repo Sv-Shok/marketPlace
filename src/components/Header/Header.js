@@ -6,9 +6,11 @@ import s from './Header.module.css';
 import { routes } from '../../scenes/routes';
 import { Icon } from '../Icons/Icon';
 import UserInfo from './components/UserInfo/UserInfo';
+import { useStore } from '../../stores/createStore';
 
 const Header = () => {
   const history = useHistory();
+  const store = useStore();
   const navigateToLogin = () => {
     history.push(routes.login);
   };
@@ -28,8 +30,14 @@ const Header = () => {
               </Link>
             </div>
             <div className={s.panelRight}>
-              <UserInfo />
-              <button onClick={navigateToLogin}>Login</button>
+              {store.auth.isLoggedIn ? (
+                <>
+                  <UserInfo />
+                  <button onClick={store.auth.logout}>LogOut</button>
+                </>
+              ) : (
+                <button onClick={navigateToLogin}>Login</button>
+              )}
             </div>
           </div>
         </div>
@@ -40,8 +48,14 @@ const Header = () => {
               <Icon name="logo" color="white" />
             </div>
             <div className={s.panelRight}>
-              <UserInfo />
-              <button onClick={navigateToLogin}>Login</button>
+              {store.auth.isLoggedIn ? (
+                <>
+                  <UserInfo />
+                  <button onClick={store.auth.logout}>LogOut</button>
+                </>
+              ) : (
+                <button onClick={navigateToLogin}>Login</button>
+              )}
             </div>
           </div>
         </div>
