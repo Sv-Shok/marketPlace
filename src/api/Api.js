@@ -40,3 +40,18 @@ export const Account = {
     return axios.get('/api/account');
   },
 };
+
+export const Products = {
+  fetchLatest() {
+    return axios.get('/api/products/latest');
+  },
+  getById(id) {
+    return axios.get(`/api/products/${id}`);
+  },
+};
+
+export const Users = {
+  getById(id) {
+    return axios.get(`/api/users/${id}`);
+  },
+};

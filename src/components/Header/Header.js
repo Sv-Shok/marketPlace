@@ -14,7 +14,12 @@ const Header = () => {
   const navigateToLogin = () => {
     history.push(routes.login);
   };
+  const navigateToProductAdd = () => {
+    history.push(routes.productAdd);
+  };
   const match = useRouteMatch(routes.auth);
+  // console.log(store.auth.isLoggedIn);
+  // console.log(store);
   return (
     <header>
       {match ? (
@@ -33,6 +38,7 @@ const Header = () => {
               {store.auth.isLoggedIn ? (
                 <>
                   <UserInfo />
+                  <button onClick={navigateToProductAdd}>Sell</button>
                   <button onClick={store.auth.logout}>LogOut</button>
                 </>
               ) : (
@@ -51,6 +57,7 @@ const Header = () => {
               {store.auth.isLoggedIn ? (
                 <>
                   <UserInfo />
+                  <button onClick={navigateToProductAdd}>Sell</button>
                   <button onClick={store.auth.logout}>LogOut</button>
                 </>
               ) : (

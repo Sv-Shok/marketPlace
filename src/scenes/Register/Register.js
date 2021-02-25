@@ -17,6 +17,7 @@ const Register = () => {
   const onSubmit = async ({ email, password, fullName }) => {
     await store.auth.register.run({ email, password, fullName });
 
+    store.auth.setIsLoggedIn(true);
     history.push(routes.home);
   };
 

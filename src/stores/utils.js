@@ -25,7 +25,7 @@ export function asyncModel(thunk, auto = true) {
           getRoot(store),
         );
         if (auto) {
-          return store._auto(promise);
+          store._auto(promise);
         }
         return promise;
       },
@@ -41,8 +41,6 @@ export function asyncModel(thunk, auto = true) {
         }
       },
     }));
-
-  // return model.create({});
   return types.optional(model, {});
 }
 
@@ -71,4 +69,23 @@ export function createPersist(store) {
   return {
     rehydrate,
   };
+}
+
+export function createCollection(ofModel, asyncModels ={}) {
+  const collection = types
+    .model('CollectionModel', {
+      collection: types.map(ofModel),
+      ...asyncModels,
+    })
+    .views((store) => ({
+      get(key) {
+        return store.collection.get(String(key));
+      },
+    }))
+    .actions((store) => ({
+      add(key, value) {
+        store.collection.set(String(key), value);
+      },
+    }));
+  return types.optional(collection, {});
 }

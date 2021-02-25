@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { PrivateRoute, routes } from '../routes';
 import Login from '../Login/Login';
 import Register from '../Register/Register';

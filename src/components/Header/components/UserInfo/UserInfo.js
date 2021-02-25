@@ -4,7 +4,9 @@ import { observer } from 'mobx-react';
 
 const UserInfo = () => {
   const store = useStore();
-  return <div>{store.viewer.user.fullName}</div>;
+  console.log(store.viewer.user);
+  // return <div>{store.viewer.user.fullName}</div>;
+  return <div>user</div>
 };
 
 export default observer(UserInfo);

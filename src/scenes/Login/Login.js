@@ -16,6 +16,7 @@ const Login = () => {
   const onSubmit = async ({ email, password }) => {
     await store.auth.login.run({ email, password });
 
+    store.auth.setIsLoggedIn(true);
     history.push(routes.home);
   };
 

@@ -5,6 +5,8 @@ import Auth from './Auth/Auth';
 import Home from './Home/Home';
 import Header from '../components/Header/Header';
 import { useStore } from '../stores/createStore';
+import ProductView from './ProductView/ProductView';
+import ProductAdd from './ProductAdd/ProductAdd';
 
 export const routes = {
   home: '/',
@@ -12,6 +14,8 @@ export const routes = {
   auth: '/auth',
   register: '/auth/register',
   restore: '/auth/restore',
+  product: '/products/:productId',
+  productAdd: '/product/add',
 };
 
 export const PrivateRoute = observer(
@@ -39,7 +43,9 @@ const Router = () => {
       <main>
         <Switch>
           <Route exact path={routes.home} component={Home} />
+          <Route path={routes.product} component={ProductView} />
           <PrivateRoute path={routes.auth} component={Auth} />
+          <Route path={routes.productAdd} component={ProductAdd} />
         </Switch>
       </main>
     </BrowserRouter>
