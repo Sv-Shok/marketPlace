@@ -13,5 +13,5 @@ export const ProductModel = types.model('ProductModel', {
   saved: false,
   createdAt: types.string,
   updatedAt: types.string,
-  owner: types.maybe(safeReference(UserModel)),
+  owner: types.maybe(safeReference(types.late(() => UserModel))),
 });

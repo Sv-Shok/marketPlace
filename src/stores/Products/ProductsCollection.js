@@ -3,6 +3,8 @@ import { asyncModel, createCollection } from '../utils';
 import * as Api from '../../api/Api';
 import { useStore } from '../createStore';
 
+import { Product } from '../schemas';
+
 export function useProductsCollection() {
   const store = useStore();
   return store.entities.products;
@@ -17,11 +19,8 @@ function getProduct(id) {
   return async function getProductFlow(flow, store, Root) {
     try {
       const res = await Api.Products.getById(id);
-      Root.entities.users.add(res.data.owner.id, res.data.owner);
-      store.add(res.data.id, {
-        ...res.data,
-        owner: +res.data.owner.id,
-      });
+
+      flow.merge(res.data, Product);
     } catch (err) {
       console.log(err);
     }
